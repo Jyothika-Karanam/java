@@ -1,32 +1,46 @@
+import java.util.Scanner;
+
 public class Calculator {
-
-    // Method to add two integers
-    public int add(int a, int b) {
-        return a + b;
-    }
-
-    // Overloaded method to add three integers
-    public int add(int a, int b, int c) {
-        return a + b + c;
-    }
-
-    // Overloaded method to add two double values
-    public double add(double a, double b) {
-        return a + b;
-    }
-
-    // Overloaded method to add a string and an integer (concatenation)
-    public String add(String a, int b) {
-        return a + b;
-    }
-
     public static void main(String[] args) {
-        Calculator calc = new Calculator();
+        Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Add two integers: " + calc.add(5, 10));
-        System.out.println("Add three integers: " + calc.add(1, 2, 3));
-        System.out.println("Add two doubles: " + calc.add(4.5, 3.2));
-        System.out.println("Add string and integer: " + calc.add("Result is ", 100));
+        System.out.println("🔢 Simple Calculator");
+        System.out.print("Enter first number: ");
+        double num1 = scanner.nextDouble();
+
+        System.out.print("Enter an operator (+, -, *, /): ");
+        char operator = scanner.next().charAt(0);
+
+        System.out.print("Enter second number: ");
+        double num2 = scanner.nextDouble();
+
+        double result;
+
+        switch (operator) {
+            case '+':
+                result = num1 + num2;
+                System.out.println("Result: " + result);
+                break;
+            case '-':
+                result = num1 - num2;
+                System.out.println("Result: " + result);
+                break;
+            case '*':
+                result = num1 * num2;
+                System.out.println("Result: " + result);
+                break;
+            case '/':
+                if (num2 != 0) {
+                    result = num1 / num2;
+                    System.out.println("Result: " + result);
+                } else {
+                    System.out.println("⚠️ Error: Division by zero is not allowed.");
+                }
+                break;
+            default:
+                System.out.println("❌ Invalid operator.");
+        }
+
+        scanner.close();
     }
 }
-
