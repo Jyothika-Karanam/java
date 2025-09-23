@@ -1,56 +1,44 @@
-// Class with encapsulated fields
-class Person {
-    // Private fields
-    private String name;
-    private int age;
+// Define the Student class
+class Student {
+    // Attributes (fields)
+    String name;
+    int age;
+    String grade;
 
     // Constructor
-    public Person(String name, int age) {
+    Student(String name, int age, String grade) {
         this.name = name;
         this.age = age;
+        this.grade = grade;
     }
 
-    // Public getter for name
-    public String getName() {
-        return name;
+    // Method to display student details
+    void displayInfo() {
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+        System.out.println("Grade: " + grade);
     }
 
-    // Public setter for name
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    // Public getter for age
-    public int getAge() {
-        return age;
-    }
-
-    // Public setter for age
-    public void setAge(int age) {
-        if (age > 0) {
-            this.age = age;
-        } else {
-            System.out.println("Age must be positive.");
-        }
+    // Method to check if student is a minor
+    boolean isMinor() {
+        return age < 18;
     }
 }
 
-// Main class to test encapsulation
+// Main class to run the program
 public class Main {
     public static void main(String[] args) {
-        // Creating an object of Person
-        Person person = new Person("Alice", 25);
+        // Create a Student object
+        Student student1 = new Student("Aarav", 16, "10th Grade");
 
-        // Accessing fields via getters
-        System.out.println("Name: " + person.getName());
-        System.out.println("Age: " + person.getAge());
+        // Display student info
+        student1.displayInfo();
 
-        // Modifying fields via setters
-        person.setName("Bob");
-        person.setAge(30);
-
-        // Display updated values
-        System.out.println("Updated Name: " + person.getName());
-        System.out.println("Updated Age: " + person.getAge());
+        // Check if the student is a minor
+        if (student1.isMinor()) {
+            System.out.println(student1.name + " is a minor.");
+        } else {
+            System.out.println(student1.name + " is not a minor.");
+        }
     }
 }
