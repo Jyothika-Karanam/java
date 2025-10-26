@@ -1,35 +1,36 @@
-import java.util.Random;
-import java.util.Scanner;
+import java.util.*;
 
 public class MoodPredictor {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String[] moods = {
-            "😊 Happy - A perfect day to smile and spread positivity!",
-            "😎 Confident - You’re ready to conquer the world today!",
-            "🤔 Thoughtful - Deep thinking brings great ideas!",
-            "😴 Lazy - Chill mode on. Take it easy today!",
-            "😁 Excited - Good vibes are coming your way!",
-            "😌 Calm - Enjoy the peace and balance around you.",
-            "😜 Playful - Time for some fun and laughter!"
-        };
-
-        String[] colors = {
-            "Blue 💙", "Red ❤️", "Green 💚", "Yellow 💛", "Purple 💜", "Orange 🧡", "Pink 💖"
-        };
-
+        Random rand = new Random();
+        
+        // Greeting
+        System.out.println("✨ Welcome to the Mood Predictor ✨");
         System.out.print("Enter your name: ");
         String name = sc.nextLine();
 
-        Random random = new Random();
-        int moodIndex = random.nextInt(moods.length);
-        int colorIndex = random.nextInt(colors.length);
+        // Random mood list
+        String[] moods = {
+            "Super energetic 💪",
+            "Calm and peaceful 🌸",
+            "Creative and inspired 🎨",
+            "Adventurous 🌍",
+            "Lazy but happy 😴",
+            "Romantic 💖",
+            "Focused and determined 🎯",
+            "Playful 😜",
+            "Dreamy ☁️",
+            "Mysterious 🔮"
+        };
 
-        System.out.println("\n✨ Hello, " + name + "! ✨");
-        System.out.println("Your lucky color today is: " + colors[colorIndex]);
-        System.out.println("Your predicted mood: " + moods[moodIndex]);
-        System.out.println("\n🌟 Have a wonderful day! 🌟");
-        
-        sc.close();
+        // Randomly select a mood
+        int moodIndex = rand.nextInt(moods.length);
+        String todaysMood = moods[moodIndex];
+
+        // Display result
+        System.out.println("\n🌞 Hey " + name + "!");
+        System.out.println("Your mood for today is: " + todaysMood);
+        System.out.println("\n💫 Have a wonderful day ahead! 💫");
     }
 }
